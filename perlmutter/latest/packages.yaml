@@ -1,0 +1,97 @@
+packages:
+  all:
+    providers:
+      blas: [cray-libsci]
+      mpi: [cray-mpich]
+  cray-libsci:
+    buildable: false
+    externals:
+    - spec: cray-libsci@21.08.1.2
+      modules:
+      - cray-libsci/21.08.1.2
+  cuda:
+    buildable: false
+    version: [11.5.0]
+    externals:
+    - spec: cuda@11.5.0
+      prefix: /opt/nvidia/hpc_sdk/Linux_x86_64/21.11/cuda/11.5
+      modules:
+      - cudatoolkit/11.5
+  nvhpc:
+    buildable: false
+    externals:
+    - spec: nvhpc@21.11 %gcc@7.5.0
+      modules:
+      - PrgEnv-nvidia
+      - nvidia/21.11
+      - craype-x86-milan
+      - libfabric
+  cray-mpich:
+    # cray-mpich externals need to define prefix
+    buildable: false
+    externals:
+    - spec: cray-mpich@8.1.17 %gcc
+      prefix: /opt/cray/pe/mpich/8.1.17/ofi/gnu/9.1
+      modules:
+      - cray-mpich/8.1.17
+      - cudatoolkit/11.5
+    - spec: cray-mpich@8.1.15 %gcc
+      prefix: /opt/cray/pe/mpich/8.1.15/ofi/gnu/9.1
+      modules:
+      - cray-mpich/8.1.15
+      - cudatoolkit/11.5
+    - spec: cray-mpich@8.1.15 %nvhpc
+      prefix: /opt/cray/pe/mpich/8.1.15/ofi/nvidia/20.7
+      modules:
+      - cray-mpich/8.1.15
+      - cudatoolkit/21.9_11.4
+  libfabric:
+    buildable: false
+    variants: fabrics=sockets,tcp,udp,rxm
+    externals:
+    - spec: libfabric@1.15.0.0
+      prefix: /opt/cray/libfabric/1.15.0.0
+      modules:
+      - libfabric
+  mesa:
+    variants: +osmesa~glx
+  openssl:
+    version: [1.1.0i]
+    buildable: false
+    externals:
+    - spec: openssl@1.1.0
+      prefix: /usr
+  openssh:
+    version: [7.9p1]
+    buildable: false
+    externals:
+    - spec: openssh@7.9p1
+      prefix: /usr
+  slurm:
+    buildable: false
+    version: [20-11-8-1]
+    externals:
+    - spec: slurm@20-11-8-1
+      prefix: /usr
+#  python:
+#    buildable: false
+#    version: [3.9.7.1]
+#    externals:
+#    - spec: python@3.9.7.1
+#      modules: [cray-python/3.9.7.1]
+#      prefix: /opt/cray/pe/python/3.9.7.1
+#  py-mpi4py:
+#    buildable: false
+#    version: [3.1.3]
+#    externals:
+#    - spec: py-mpi4py@3.1.3
+#      modules:
+#      - cray-mpich/8.1.15
+#      - cray-python/3.9.7.1
+#  py-numpy:
+#    buildable: false
+#    version: [1.20.3]
+#    externals:
+#    - spec: py-numpy@1.20.3
+#      modules:
+#      - cray-python/3.9.7.1
