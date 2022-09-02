@@ -12,11 +12,11 @@ packages:
       modules:
       - cray-mpich/8.1.16
       - libfabric/1.15.0.0
-      - spec: cray-mpich@8.1.16 %clang@14.0.0-rocm5.1.0
-        prefix: /opt/cray/pe/mpich/8.1.16/ofi/amd/5.0
-        modules:
-        - cray-mpich/8.1.16
-        - libfabric/1.15.0.0
+    - spec: cray-mpich@8.1.16 %clang@14.0.0-rocm5.1.0
+      prefix: /opt/cray/pe/mpich/8.1.16/ofi/amd/5.0
+      modules:
+      - cray-mpich/8.1.16
+      - libfabric/1.15.0.0
 
   libfabric:
     buildable: false
