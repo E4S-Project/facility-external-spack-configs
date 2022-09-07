@@ -31,132 +31,157 @@ packages:
     externals:
     - spec: comgr@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   hip-rocclr:
     buildable: false
     externals:
     - spec: hip-rocclr@5.2.0
       prefix: /opt/rocm-5.2.0/hip
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   hipblas:
     buildable: false
     externals:
     - spec: hipblas@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   hipcub:
     buildable: false
     externals:
     - spec: hipcub@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   hipfft:
     buildable: false
     externals:
     - spec: hipfft@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   hipsparse:
     buildable: false
     externals:
     - spec: hipsparse@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   miopen-hip:
     buildable: false
     externals:
     - spec: hip-rocclr@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   miopengemm:
     buildable: false
     externals:
     - spec: miopengemm@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   rccl:
     buildable: false
     externals:
     - spec: rccl@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   rocblas:
     buildable: false
     externals:
     - spec: rocblas@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   rocfft:
     buildable: false
     externals:
     - spec: rocfft@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   rocm-clang-ocl:
     buildable: false
     externals:
     - spec: rocm-clang-ocl@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   rocm-cmake:
     buildable: false
     externals:
     - spec: rocm-cmake@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   rocm-dbgapi:
     buildable: false
     externals:
     - spec: rocm-dbgapi@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   rocm-debug-agent:
     buildable: false
     externals:
     - spec: rocm-debug-agent@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   rocm-device-libs:
     buildable: false
     externals:
     - spec: rocm-device-libs@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   rocm-gdb:
     buildable: false
     externals:
     - spec: rocm-gdb@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   rocm-opencl:
     buildable: false
     externals:
     - spec: rocm-opencl@5.2.0
       prefix: /opt/rocm-5.2.0/opencl
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   rocm-smi-lib:
     buildable: false
     externals:
     - spec: rocm-smi-lib@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   hip:
     buildable: false
     externals:
     - spec: hip@5.2.0
       prefix: /opt/rocm-5.2.0/hip
-      modules: [rocm/5.2.0]
+      modules:
+      - craype-accel-amd-gfx90a
+      - rocm/5.2.0
       extra_attributes:
         compilers:
           c: /opt/rocm-5.2.0/llvm/bin/clang++
           c++: /opt/rocm-5.2.0/llvm/bin/clang++
           hip: /opt/rocm-5.2.0/hip/bin/hipcc
+      environment:
+        set:
+          MPICH_GPU_SUPPORT_ENABLED: 1 
   llvm-amdgpu:
     buildable: false
     externals:
     - spec: llvm-amdgpu@5.2.0
       prefix: /opt/rocm-5.2.0/llvm
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
       extra_attributes:
         compilers:
           c: /opt/rocm-5.2.0/llvm/bin/clang++
@@ -166,13 +191,15 @@ packages:
     externals:
     - spec: hsakmt-roct@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   hsa-rocr-dev:
     buildable: false
     externals:
     - spec: hsa-rocr-dev@5.2.0
       prefix: /opt/rocm-5.2.0/
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
       extra_atributes:
         compilers:
           c: /opt/rocm-5.2.0/llvm/bin/clang++
@@ -182,34 +209,40 @@ packages:
     externals:
     - spec: roctracer-dev-api@5.2.0
       prefix: /opt/rocm-5.2.0/roctracer
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   rocprim:
     buildable: false
     externals:
     - spec: rocprim@5.2.0
       prefix: /opt/rocm-5.2.0
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   rocrand:
     buildable: false
     externals:
     - spec: rocrand@5.2.0
       prefix: /opt/rocm-5.2.0
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   rocsolver:
     buildable: false
     externals:
     - spec: rocsolver@5.2.0
       prefix: /opt/rocm-5.2.0
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   rocsparse:
     buildable: false
     externals:
     - spec: rocsparse@5.2.0
       prefix: /opt/rocm-5.2.0
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
   rocthrust:
     buildable: false
     externals:
     - spec: rocthrust@5.2.0
       prefix: /opt/rocm-5.2.0
-      modules: [rocm/5.2.0]
+      modules:
+      - rocm/5.2.0
