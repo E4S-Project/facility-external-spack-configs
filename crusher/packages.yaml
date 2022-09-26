@@ -246,3 +246,10 @@ packages:
       prefix: /opt/rocm-5.2.0
       modules:
       - rocm/5.2.0
+  rocprofiler-dev:
+    buildable: false
+    externals:
+    - spec: rocprofiler-dev@5.2.0
+      prefix: /opt/rocm-5.2.0
+      modules:
+      - rocm/5.2.0
