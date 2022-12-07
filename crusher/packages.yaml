@@ -1,4 +1,31 @@
 packages:
+  all:
+    providers:
+      blas: [cray-libsci]
+      mpi: [cray-mpich]
+      libllvm: [llvm-amdgpu]
+
+  # System packages
+  openssh:
+    buildable: false
+    externals:
+    - spec: openssh@8.4p1
+      prefix: /usr
+  openssl:
+    buildable: false
+    externals:
+    - spec: openssl@1.1.1d
+      prefix: /usr
+
+  cmake:
+    version: [3.23.3]
+    variants: +ownlibs~qt~doc+ncurses
+  # Cray provided packages
+  cray-libsci:
+    buildable: false
+    externals:
+    - spec: cray-libsci@21.08.1.2
+      modules: [cray-libsci/21.08.1.2]
   cray-mpich:
     buildable: false
     externals:
@@ -162,8 +189,21 @@ packages:
   hip:
     buildable: false
     externals:
+    - spec: hip@5.2.0 %cce
+      prefix: /opt/rocm-5.2.0
+      modules:
+      - craype-accel-amd-gfx90a
+      - rocm/5.2.0
+      extra_attributes:
+        compilers:
+          c: /opt/cray/pe/craype/2.7.13/bin/cc
+          c++: /opt/cray/pe/craype/2.7.13/bin/CC
+          hip: /opt/cray/pe/craype/2.7.13/bin/CC
+      environment:
+        set:
+          MPICH_GPU_SUPPORT_ENABLED: 1
     - spec: hip@5.2.0
-      prefix: /opt/rocm-5.2.0/hip
+      prefix: /opt/rocm-5.2.0
       modules:
       - craype-accel-amd-gfx90a
       - rocm/5.2.0
@@ -171,7 +211,8 @@ packages:
         compilers:
           c: /opt/rocm-5.2.0/llvm/bin/clang++
           c++: /opt/rocm-5.2.0/llvm/bin/clang++
-          hip: /opt/rocm-5.2.0/hip/bin/hipcc
+          hip: /opt/rocm-5.2.0/llvm/bin/clang++
+          # hip: /opt/rocm-5.2.0/hip/bin/hipcc
       environment:
         set:
           MPICH_GPU_SUPPORT_ENABLED: 1 

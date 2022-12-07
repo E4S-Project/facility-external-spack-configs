@@ -29,7 +29,7 @@ compilers:
     - /opt/cray/pe/gcc-libs
     - /opt/cray/gcc-libs
 - compiler:
-    spec: cce@14.0.0
+    spec: cce@14.0.2
     paths:
       cc: /opt/cray/pe/craype/2.7.13/bin/cc
       cxx: /opt/cray/pe/craype/2.7.13/bin/CC
@@ -40,15 +40,17 @@ compilers:
     target: any
     modules:
     - PrgEnv-cray/8.3.3
-    - cce/14.0.0
+    - cce/14.0.2
     - craype-x86-trento
     - libfabric
     - cray-pmi/6.1.2
     environment:
       set:
         RFE_811452_DISABLE: '1'
+        HIPCC: /opt/cray/pe/craype/2.7.13/bin/CC
       append_path:
         LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        PKG_CONFIG_PATH: /opt/cray/xpmem/2.4.4-2.3_11.2__gff0e1d9.shasta/lib64/pkgconfig
       prepend_path:
         LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.2/lib
     extra_rpaths:
