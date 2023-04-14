@@ -1,0 +1,66 @@
+packages:
+  all:
+    providers:
+      blas:: [cray-libsci]
+      mpi:: [cray-mpich]
+      libllvm:: [llvm-amdgpu]
+      gl:: [osmesa]
+      osmesa:: [mesa+osmesa]
+
+  # System packages
+  openssh:
+    buildable: false
+    externals:
+    - spec: openssh@8.4p1
+      prefix: /usr
+  openssl:
+    buildable: false
+    externals:
+    - spec: openssl@1.1.1l
+      prefix: /usr
+
+  cmake:
+    version: [3.26.1]
+    variants: +ownlibs~qt~doc+ncurses
+  # Cray provided packages
+  cray-libsci:
+    buildable: false
+    externals:
+    - spec: cray-libsci@22.12.1.1 +openmp+mpi
+      modules: [cray-libsci/22.12.1.1]
+  cray-mpich:
+    buildable: false
+    externals:
+    - spec: cray-mpich@8.1.23 %gcc
+      prefix: /opt/cray/pe/mpich/8.1.23/ofi/gnu/9.1
+      modules:
+      - cray-mpich/8.1.23
+      - libfabric/1.15.2.0
+    - spec: cray-mpich@8.1.23 %cce
+      prefix: /opt/cray/pe/mpich/8.1.23/ofi/crayclang/10.0
+      modules:
+      - cray-mpich/8.1.23
+      - libfabric/1.15.2.0
+    - spec: cray-mpich@8.1.17 %clang@14.0.0-rocm5.2.0
+      prefix: /opt/cray/pe/mpich/8.1.23/ofi/amd/5.0
+      modules:
+      - cray-mpich/8.1.23
+      - libfabric/1.15.2.0
+    - spec: cray-mpich@8.1.17 %clang@15.0.0-rocm5.4.3
+      prefix: /opt/cray/pe/mpich/8.1.23/ofi/amd/5.0
+      modules:
+      - cray-mpich/8.1.23
+      - libfabric/1.15.2.0
+
+  libfabric:
+    buildable: false
+    externals:
+    - spec: libfabric@1.15.2.0
+      modules:
+      - libfabric/1.15.2.0
+  paraview:
+    require: ~qt+osmesa
+  mesa:
+    require: +llvm~glx+osmesa
+  visit:
+    require: ~gui+osmesa
