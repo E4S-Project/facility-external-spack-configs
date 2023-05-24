@@ -58,6 +58,12 @@ packages:
     - spec: libfabric@1.15.2.0
       modules:
       - libfabric/1.15.2.0
+  libffi:
+    require: ["%gcc@7.5.0-system"]
+    # buildable: false
+    # externals:
+    # - spec: libffi@3
+    #   prefix: /usr
   paraview:
     require: ~qt+osmesa
   mesa:
