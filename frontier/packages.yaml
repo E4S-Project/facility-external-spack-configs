@@ -41,7 +41,7 @@ packages:
       modules:
       - cray-mpich/8.1.23
       - libfabric/1.15.2.0
-    - spec: cray-mpich@8.1.17 %clang@14.0.0-rocm5.2.0
+    - spec: cray-mpich@8.1.17 %clang@15.0.0-rocm5.3.0
       prefix: /opt/cray/pe/mpich/8.1.23/ofi/amd/5.0
       modules:
       - cray-mpich/8.1.23
@@ -51,7 +51,6 @@ packages:
       modules:
       - cray-mpich/8.1.23
       - libfabric/1.15.2.0
-
   libfabric:
     buildable: false
     externals:
@@ -68,5 +67,10 @@ packages:
     require: ~qt+osmesa
   mesa:
     require: +llvm~glx+osmesa
+  ncurses:
+    buildable: false
+    externals:
+    - spec: ncurses@6.4%gcc@11.2.0~symlinks+termlib
+      prefix: /usr/
   visit:
     require: ~gui+osmesa

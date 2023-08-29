@@ -125,13 +125,13 @@ packages:
       modules:
       - cray-python/3.9.13.1
       prefix: /opt/cray/pe/python/3.9.13.1/
-  py-pybind11:
-    # buildable: false
-    externals:
-    - spec: py-pybind11@2.6.2-cray ^python@3.9.13.1-cray
-      modules:
-      - cray-python/3.9.13.1
-      prefix: /opt/cray/pe/python/3.9.13.1/
+  # py-pybind11:
+  #   # buildable: false
+  #   externals:
+  #   - spec: py-pybind11@2.6.2-cray ^python@3.9.13.1-cray
+  #     modules:
+  #     - cray-python/3.9.13.1
+  #     prefix: /opt/cray/pe/python/3.9.13.1/lib/python3.9/site-packages/pybind11/
   py-pyparsing:
     # buildable: false
     externals:

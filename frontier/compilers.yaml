@@ -57,7 +57,7 @@ compilers:
     - /opt/cray/pe/gcc-libs
     - /opt/cray/gcc-libs
 - compiler:
-    spec: cce@15.0.0a
+    spec: cce@15.0.0
     paths:
       cc: cc
       cxx: CC
