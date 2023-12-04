@@ -133,7 +133,7 @@ compilers:
       fc: /usr/bin/gfortran
     flags: {}
     operating_system: sles15
-    modules: {}
+    modules: []
     environment:
       append_path:
         PKG_CONFIG_PATH: /usr/lib64/pkgconfig
