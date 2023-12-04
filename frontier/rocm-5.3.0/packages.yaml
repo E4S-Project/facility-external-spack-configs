@@ -174,7 +174,7 @@ packages:
       prefix: /opt/rocm-5.3.0/
       modules:
       - rocm/5.3.0
-      extra_atributes:
+      extra_attributes:
         compilers:
           c: /opt/rocm-5.3.0/llvm/bin/clang++
           cxx: /opt/rocm-5.3.0/llvm/bin/clang++
