@@ -1,0 +1,140 @@
+compilers:
+- compiler:
+    spec: clang@14.0.0-rocm5.2.0
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    operating_system: sles15
+    modules:
+    - PrgEnv-amd
+    - amd/5.2.0
+    - xpmem
+    - craype-x86-trento
+    - libfabric
+    - cray-pmi/6.1.8
+    environment:
+      set:
+        RFE_811452_DISABLE: '1'
+      append_path:
+        PKG_CONFIG_PATH: /opt/cray/xpmem/2.5.2-2.4_3.45__gd0f7936.shasta/lib64/pkgconfig:/usr/lib64/pkgconfig
+        LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.2.0/lib64
+      prepend_path:
+        LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.8/lib
+        LIBRARY_PATH: /opt/rocm-5.2.0/lib:/opt/rocm-5.2.0/lib64
+    extra_rpaths:
+    - /opt/rocm-5.2.0/lib
+    - /opt/rocm-5.2.0/lib64
+    - /opt/cray/pe/gcc-libs
+    - /opt/cray/gcc-libs
+- compiler:
+    spec: cce@14.0.2
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    flags: {}
+    operating_system: sles15
+    modules:
+    - PrgEnv-cray
+    - cce/14.0.2
+    - xpmem
+    - craype-x86-trento
+    - libfabric
+    - cray-pmi/6.1.8
+    environment:
+      set:
+        RFE_811452_DISABLE: '1'
+        HIPCC: CC
+      append_path:
+        PKG_CONFIG_PATH: /opt/cray/xpmem/2.5.2-2.4_3.45__gd0f7936.shasta/lib64/pkgconfig:/usr/lib64/pkgconfig
+        LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.2.0/lib64
+      prepend_path:
+        LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.8/lib
+    extra_rpaths:
+    - /opt/cray/pe/gcc-libs
+    - /opt/cray/gcc-libs
+- compiler:
+    spec: cce@15.0.0
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    flags: {}
+    operating_system: sles15
+    modules:
+    - PrgEnv-cray
+    - cce/15.0.0
+    - xpmem
+    - craype-x86-trento
+    - libfabric
+    - cray-pmi/6.1.8
+    environment:
+      set:
+        RFE_811452_DISABLE: '1'
+        HIPCC: CC
+      append_path:
+        PKG_CONFIG_PATH: /opt/cray/xpmem/2.5.2-2.4_3.45__gd0f7936.shasta/lib64/pkgconfig:/usr/lib64/pkgconfig
+        LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.2.0/lib64
+      prepend_path:
+        LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.8/lib
+    extra_rpaths:
+    - /opt/cray/pe/gcc-libs
+    - /opt/cray/gcc-libs
+- compiler:
+    spec: gcc@11.2.0
+    paths:
+      cc: gcc
+      cxx: g++
+      f77: gfortran
+      fc: gfortran
+    flags: {}
+    operating_system: sles15
+    modules:
+    - PrgEnv-gnu
+    - gcc/11.2.0
+    - xpmem
+    - craype-x86-trento
+    - libfabric
+    - cray-pmi/6.1.8
+    environment:
+      append_path:
+        PKG_CONFIG_PATH: /opt/cray/xpmem/2.5.2-2.4_3.45__gd0f7936.shasta/lib64/pkgconfig:/usr/lib64/pkgconfig
+    extra_rpaths: []
+- compiler:
+    spec: gcc@12.2.0
+    paths:
+      cc: gcc
+      cxx: g++
+      f77: gfortran
+      fc: gfortran
+    flags: {}
+    operating_system: sles15
+    modules:
+    - PrgEnv-gnu
+    - gcc/12.2.0
+    - xpmem
+    - craype-x86-trento
+    - libfabric
+    - cray-pmi/6.1.8
+    environment:
+      append_path:
+        PKG_CONFIG_PATH: /opt/cray/xpmem/2.5.2-2.4_3.45__gd0f7936.shasta/lib64/pkgconfig:/usr/lib64/pkgconfig
+    extra_rpaths: []
+- compiler:
+    spec: gcc@7.5.0-system
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /usr/bin/gfortran
+      fc: /usr/bin/gfortran
+    flags: {}
+    operating_system: sles15
+    modules: []
+    environment:
+      append_path:
+        PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+    extra_rpaths: []
