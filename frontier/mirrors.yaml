@@ -1,2 +1,6 @@
 mirrors:
-  data-vis-sdk: file:///lustre/orion/world-shared/csc444/spack/mirrors/data-vis-sdk/
+  frontier:
+    binary: true
+    source: false
+    signed: true
+    url: file:///lustre/orion/world-shared/ums032/spack/mirrors/frontier

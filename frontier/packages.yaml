@@ -5,24 +5,22 @@ packages:
       mpi:: [cray-mpich]
       libllvm:: [llvm-amdgpu]
       gl:: [osmesa]
-      libosmesa:: [mesa+osmesa]
 
   # System packages
   openssh:
     buildable: false
     externals:
-    - spec: "openssh@8.4p1 %gcc@7.5.0-system"
+    - spec: "openssh@8.4p1"
       prefix: /usr
   openssl:
     buildable: false
     externals:
-    - spec: "openssl@1.1.1l %gcc@7.5.0-system"
+    - spec: "openssl@1.1.1l"
       prefix: /usr
 
   cmake:
-    require: ["%gcc@7.5.0-system"]
-    version: [3.26.1]
-    variants: +ownlibs~qt~doc+ncurses
+    require:
+    - ~ownlibs~doc+ncurses
   # Cray provided packages
   cray-libsci:
     buildable: false
@@ -58,23 +56,22 @@ packages:
     - spec: libfabric@1.15.2.0
       modules:
       - libfabric/1.15.2.0
-  libffi:
-    require: ["%gcc@7.5.0-system"]
-    # py-cffi requires libffi.so.8 which is not on this system
-    # buildable: false
-    # externals:
-    # - spec: libffi@3 # %gcc@7.5.0-system
-    #   prefix: /usr
+  # libffi:
+  #   # py-cffi requires libffi.so.8 which is not on this system
+  #   buildable: false
+  #   externals:
+  #   - spec: libffi@3
+  #     prefix: /usr
   paraview:
     require:
-    - ~qt+osmesa
+    - ~qt ^[virtuals=gl] osmesa
   mesa:
     require:
     - +llvm~glx+osmesa
   ncurses:
     buildable: false
     externals:
-    - spec: "ncurses@6.4-system~symlinks+termlib %gcc@7.5.0-system"
+    - spec: ncurses@6.4-system~symlinks+termlib
       prefix: /usr/
   visit:
-    require: ~gui+osmesa
+    require: ~gui ^[virtuals=gl] osmesa
