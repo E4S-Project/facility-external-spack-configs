@@ -1,0 +1,30 @@
+compilers:
+- compiler:
+    spec: clang@15.0.0-rocm6.2.0
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    operating_system: sles15
+    modules:
+    - PrgEnv-amd
+    - amd/6.2.0
+    - xpmem
+    - craype-x86-trento
+    - libfabric
+    - cray-pmi/6.1.8
+    environment:
+      set:
+        RFE_811452_DISABLE: '1'
+      append_path:
+        PKG_CONFIG_PATH: /opt/cray/xpmem/2.5.2-2.4_3.45__gd0f7936.shasta/lib64/pkgconfig:/usr/lib64/pkgconfig
+        LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.2.0/lib64
+      prepend_path:
+        LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.8/lib
+        LIBRARY_PATH: /opt/rocm-6.2.0/lib:/opt/rocm-6.2.0/lib64
+    extra_rpaths:
+    - /opt/rocm-6.2.0/lib
+    - /opt/rocm-6.2.0/lib64
+    - /opt/cray/pe/gcc-libs
+    - /opt/cray/gcc-libs

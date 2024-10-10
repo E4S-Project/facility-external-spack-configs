@@ -138,3 +138,23 @@ compilers:
       append_path:
         PKG_CONFIG_PATH: /usr/lib64/pkgconfig
     extra_rpaths: []
+- compiler:
+    spec: gcc@13.2.1
+    paths:
+      cc: gcc
+      cxx: g++
+      f77: gfortran
+      fc: gfortran
+    flags: {}
+    operating_system: sles15
+    modules:
+    - PrgEnv-gnu
+    - gcc-native/13.2
+    - xpmem
+    - craype-x86-trento
+    - libfabric
+    - cray-pmi/6.1.8
+    environment:
+      append_path:
+        PKG_CONFIG_PATH: /opt/cray/xpmem/2.5.2-2.4_3.45__gd0f7936.shasta/lib64/pkgconfig:/usr/lib64/pkgconfig
+    extra_rpaths: []
