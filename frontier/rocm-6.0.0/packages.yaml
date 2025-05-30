@@ -77,6 +77,13 @@ packages:
       prefix: /opt/rocm-6.0.0/
       modules:
       - rocm/6.0.0
+  rocm-core:
+    buildable: false
+    externals:
+    - spec: rocm-core@6.0.0
+      prefix: /opt/rocm-6.0.0/
+      modules:
+      - rocm/6.0.0
   rocm-clang-ocl:
     buildable: false
     externals:
