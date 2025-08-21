@@ -6,6 +6,103 @@ packages:
       mpi:: [cray-mpich]
       libllvm:: [llvm-amdgpu]
       gl:: [osmesa]
+  cce:
+    buildable: false
+    externals:
+    - spec: cce@14.0.2
+      modules:
+      - PrgEnv-cray
+      - cce/14.0.2
+      - xpmem
+      - craype-x86-trento
+      - libfabric
+      - cray-pmi/6.1.8
+      extra_attributes:
+        environment:
+          set:
+            RFE_811452_DISABLE: '1'
+            HIPCC: CC
+          append_path:
+            PKG_CONFIG_PATH: /opt/cray/xpmem/2.5.2-2.4_3.45__gd0f7936.shasta/lib64/pkgconfig:/usr/lib64/pkgconfig
+            LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.2.0/lib64
+          prepend_path:
+            LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.8/lib
+        extra_rpaths:
+        - /opt/cray/pe/gcc-libs
+        - /opt/cray/gcc-libs
+    - spec: cce@15.0.0
+      modules:
+      - PrgEnv-cray
+      - cce/15.0.0
+      - xpmem
+      - craype-x86-trento
+      - libfabric
+      - cray-pmi/6.1.8
+      extra_attributes:
+        environment:
+          set:
+            RFE_811452_DISABLE: '1'
+            HIPCC: CC
+          append_path:
+            PKG_CONFIG_PATH: /opt/cray/xpmem/2.5.2-2.4_3.45__gd0f7936.shasta/lib64/pkgconfig:/usr/lib64/pkgconfig
+            LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.2.0/lib64
+          prepend_path:
+            LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.8/lib
+        extra_rpaths:
+        - /opt/cray/pe/gcc-libs
+        - /opt/cray/gcc-libs
+  gcc:
+    buildable: false
+    externals:
+    - spec: gcc@13.2.1-native
+      modules:
+      - PrgEnv-gnu
+      - gcc-native/13.2
+      - xpmem
+      - craype-x86-trento
+      - libfabric
+      - cray-pmi/6.1.8
+      extra_attributes:
+        environment:
+          append_path:
+            PKG_CONFIG_PATH: /opt/cray/xpmem/2.5.2-2.4_3.45__gd0f7936.shasta/lib64/pkgconfig:/usr/lib64/pkgconfig
+
+    - spec: gcc@12.2.0
+      modules:
+      - PrgEnv-gnu
+      - gcc/12.2.0
+      - xpmem
+      - craype-x86-trento
+      - libfabric
+      - cray-pmi/6.1.8
+      extra_attributes:
+        compilers:
+          c: gcc
+          cxx: g++
+          fortran: gfortran
+        environment:
+          append_path:
+            PKG_CONFIG_PATH: /opt/cray/xpmem/2.5.2-2.4_3.45__gd0f7936.shasta/lib64/pkgconfig:/usr/lib64/pkgconfig
+
+    - spec: gcc@11.2.0
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+      - xpmem
+      - craype-x86-trento
+      - libfabric
+      - cray-pmi/6.1.8
+      extra_attributes:
+        environment:
+          append_path:
+            PKG_CONFIG_PATH: /opt/cray/xpmem/2.5.2-2.4_3.45__gd0f7936.shasta/lib64/pkgconfig:/usr/lib64/pkgconfig
+
+    - spec: gcc@7.5.0-system
+      prefix: /usr/
+      extra_attributes:
+        environment:
+          append_path:
+            PKG_CONFIG_PATH: /usr/lib64/pkgconfig
 
   # System packages
   openssh:

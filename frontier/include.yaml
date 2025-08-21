@@ -1,0 +1,3 @@
+include:
+  - when: "CRAY_ROCM_VERSION" in env
+    path: rocm-${CRAY_ROCM_VERSION}
