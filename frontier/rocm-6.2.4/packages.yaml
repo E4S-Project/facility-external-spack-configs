@@ -159,8 +159,8 @@ packages:
       - craype/2.7.35
       - cray-dsmml/0.3.1
       - amd/6.2.4
-      - cray-mpich/9.0.1
       - PrgEnv-amd
+      - cray-mpich/9.0.1
       - craype-x86-trento
       - cray-libsci/25.09.0
       - cray-pmi/6.1.16
