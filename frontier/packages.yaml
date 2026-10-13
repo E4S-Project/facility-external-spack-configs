@@ -29,6 +29,7 @@ packages:
         - gcc-native/14.2
         - craype/2.7.35
         - cray-dsmml/0.3.1
+        - PrgEnv-gnu/8.6.0
         - cray-mpich/9.0.1
         - cray-libsci/25.09.0
         - craype-x86-trento
