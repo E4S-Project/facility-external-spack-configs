@@ -41,6 +41,16 @@ packages:
           c: /usr/bin/gcc-14
           cxx: /usr/bin/g++-14
           fortran: /usr/bin/gfortran-14
+  rust:
+    buildable: false
+    externals:
+    - spec: rust@1.76.0
+      modules:
+      - Core/24.00
+      - rust/1.76.0
+      extra_attributes:
+        compilers:
+          rust: rustc
   openssh:
     buildable: false
     externals:
