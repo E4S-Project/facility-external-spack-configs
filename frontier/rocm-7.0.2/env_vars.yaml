@@ -1,0 +1,9 @@
+# Note: you need to activate a spack environment for these to take effect
+env_vars:
+  set:
+    MPICH_GPU_SUPPORT_ENABLED: "1"
+    CFLAGS: -I/opt/cray/pe/mpich/9.1.0/ofi/crayclang/20.0/include -L/opt/cray/pe/mpich/9.1.0/ofi/crayclang/20.0/lib -lmpi -L/opt/cray/pe/mpich/9.1.0/gtl/lib -lmpi_gtl_hsa
+    CXXFLAGS: -I/opt/cray/pe/mpich/9.1.0/ofi/crayclang/20.0/include -L/opt/cray/pe/mpich/9.1.0/ofi/crayclang/20.0/lib -lmpi -L/opt/cray/pe/mpich/9.1.0/gtl/lib -lmpi_gtl_hsa
+    HIPFLAGS: -I/opt/cray/pe/mpich/9.1.0/ofi/crayclang/20.0/include -L/opt/cray/pe/mpich/9.1.0/ofi/crayclang/20.0/lib -lmpi -L/opt/cray/pe/mpich/9.1.0/gtl/lib -lmpi_gtl_hsa
+  prepend_path:
+    LD_LIBRARY_PATH: /opt/rocm-7.0.2/lib
