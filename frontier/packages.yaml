@@ -1,3 +1,4 @@
+# Note: this configuration is designed for ROCm 6.X.
 packages:
   all:
     providers:
@@ -30,7 +31,7 @@ packages:
         - craype/2.7.35
         - cray-dsmml/0.3.1
         - PrgEnv-gnu/8.6.0
-        - cray-mpich/9.0.1
+        - cray-mpich/8.1.31
         - cray-libsci/25.09.0
         - craype-x86-trento
         - cray-pmi/6.1.16
